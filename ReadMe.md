@@ -38,10 +38,10 @@
     @Import_R("com.ly1054.test.R")
     @Lib_ContentView("R.layout.main")
     public Class MainActivity extends Activity{
-        @Lib_Bind(R.id.text)
+        @Lib_Bind("R.id.text")
         TextView mText;
 
-        @Lib_Onclick(R.id.text)
+        @Lib_Onclick("R.id.text")
         public void onTextClick(View v){
         }
     }
