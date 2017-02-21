@@ -2,11 +2,8 @@ package com.ly1054.birsker;
 
 
 
-import com.ly1054.birsker.annotation.OnClick;
-
 import java.util.HashMap;
 import java.util.Map;
-
 import javax.lang.model.element.Element;
 import javax.lang.model.element.PackageElement;
 import javax.lang.model.element.TypeElement;
@@ -44,9 +41,9 @@ public class AptGenerator {
 
     public Map<Element,String> mIntentNameMap = new HashMap<>();
 
-    public Map<Element,Integer> mOnClickMap = new HashMap<>();
+    public Map<Element,int[]> mOnClickMap = new HashMap<>();
 
-    public  Map<Element,String> mLibOnClickMap = new HashMap<>();
+    public  Map<Element,String[]> mLibOnClickMap = new HashMap<>();
 
     public AptGenerator(Elements elements, TypeElement typeElement){
         this.mTypeElement = typeElement;
@@ -140,25 +137,30 @@ public class AptGenerator {
             //OnClick注解
             for (Element element:mOnClickMap.keySet()){
                 String name = element.getSimpleName().toString();
-                builder.append("                activity.findViewById("  +  mOnClickMap.get(element)
-                        + ").setOnClickListener(new android.view.View.OnClickListener(){\n" +
-                        "                   @Override\n" +
-                        "                           public void onClick(android.view.View v){ \n" +
-                        "                                   activity." + name + "(v);\n" +
-                        "                           }\n" +
-                        "                   });\n" );
+                for (int i = 0; i < mOnClickMap.get(element).length; i++) {
+                    builder.append("                activity.findViewById("  +  mOnClickMap.get(element)[i]
+                            + ").setOnClickListener(new android.view.View.OnClickListener(){\n" +
+                            "                   @Override\n" +
+                            "                           public void onClick(android.view.View v){ \n" +
+                            "                                   activity." + name + "(v);\n" +
+                            "                           }\n" +
+                            "                   });\n" );
+                }
+
             }
 
             //Lib_OnClick注解
             for (Element element : mLibOnClickMap.keySet()) {
                 String name = element.getSimpleName().toString();
-                builder.append("                activity.findViewById("  +  mLibOnClickMap.get(element)
-                + ").setOnClickListener(new android.view.View.OnClickListener(){\n" +
-                        "                   @Override\n" +
-                        "                           public void onClick(android.view.View v){ \n" +
-                        "                                   activity." + name + "(v);\n" +
-                        "                           }\n" +
-                        "                   });\n" );
+                for (int i = 0; i < mLibOnClickMap.get(element).length; i++) {
+                    builder.append("                activity.findViewById("  +  mLibOnClickMap.get(element)[i]
+                            + ").setOnClickListener(new android.view.View.OnClickListener(){\n" +
+                            "                   @Override\n" +
+                            "                           public void onClick(android.view.View v){ \n" +
+                            "                                   activity." + name + "(v);\n" +
+                            "                           }\n" +
+                            "                   });\n" );
+                }
             }
 
         }else {
@@ -186,6 +188,7 @@ public class AptGenerator {
         }else if (type.equals(char.class.toString())){
             builder.append("                host." + name+ " = host.getIntent().getCharExtra(" + '"'+ value + '"' + ",' ');\n" );
         }
+
     }
 
 

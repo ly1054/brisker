@@ -20,6 +20,10 @@
         v.setText(“你点击了text!");
      }
 
+     @Bind({R.id.text,R.id.text1})
+     public void onClick(View v){
+     }
+
      intent传值绑定：
      @IntentName("text")
      String mText;

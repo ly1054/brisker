@@ -19,5 +19,5 @@ import java.lang.annotation.Target;
 @Target(ElementType.METHOD)
 public @interface Lib_OnClick {
 
-    String value() default "";
+    String[] value() default "";
 }

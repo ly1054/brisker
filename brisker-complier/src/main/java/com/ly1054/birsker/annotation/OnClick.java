@@ -19,5 +19,5 @@ import java.lang.annotation.Target;
 @Target(ElementType.METHOD)
 public @interface OnClick {
 
-    int value() default 0;
+    int[] value() default 0;
 }

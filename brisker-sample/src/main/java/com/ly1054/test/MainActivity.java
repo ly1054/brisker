@@ -1,12 +1,9 @@
 package com.ly1054.test;
 
-import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
-
 import com.ly1054.birsker.R;
 import com.ly1054.birsker.annotation.Bind;
 import com.ly1054.birsker.annotation.ContentView;
@@ -50,25 +47,18 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         Brisker.inject(this);
         mTextView1.setText("hello whtaddd+++++中国");
-//        setContentView(R.layout.activity_main);
-//        Log.e("R url:",R.id);
-//        Brisker.inject(this);
-//        mTextView.setText("中国人");
-//        mTextView.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                startActivity(new Intent(MainActivity.this, HelloActivity.class));
-//            }
-//        });
     }
 
-    @Lib_OnClick("R.id.text1")
-    public void text(View v){
-
-    }
-
+//    @Lib_OnClick({"R.id.text1"})
+//    public void text(View v){
+//    }
+//
     @OnClick(R.id.text1)
     public void text1(View v){
-        
+    }
+
+    @OnClick({R.id.text1,R.id.text})
+    public void onClick(View v){
+
     }
 }

@@ -162,12 +162,12 @@ public class BriskerProcessor extends AbstractProcessor {
                 }
             }else if (clazz == OnClick.class){
                 if (checkCanAnnotation(element,OnClick.class,ElementKind.METHOD)){
-                    int value = element.getAnnotation(OnClick.class).value();
+                    int[] value = element.getAnnotation(OnClick.class).value();
                     generator.mOnClickMap.put(element,value);
                 }
             }else if (clazz == Lib_OnClick.class){
                 if (checkCanAnnotation(element,Lib_OnClick.class,ElementKind.METHOD)){
-                    String value = element.getAnnotation(Lib_OnClick.class).value();
+                    String[] value = element.getAnnotation(Lib_OnClick.class).value();
                     generator.mLibOnClickMap.put(element,value);
                 }
             }
