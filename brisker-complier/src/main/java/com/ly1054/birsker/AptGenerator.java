@@ -11,16 +11,6 @@ import javax.lang.model.util.Elements;
 
 
 
-/**
- * @项目名： MiFengJi
- * @包名： com.ly1054.brisker
- * @文件名: AptGenerator
- * @创建者: 刘勇
- * @创建时间: 2017/02/16  16:21
- * @描述： TODO
- */
-
-
 public class AptGenerator {
 
     private String mPackageName;
