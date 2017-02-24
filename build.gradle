@@ -3,11 +3,9 @@
 buildscript {
     repositories {
         jcenter()
-        maven{url "https://jitpack.io"}
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:2.2.3'
-        classpath 'com.novoda:bintray-release:0.4.0'
         classpath 'com.neenbedankt.gradle.plugins:android-apt:1.8'
         classpath 'com.github.dcendents:android-maven-gradle-plugin:1.4.1'
         // NOTE: Do not place your application dependencies here; they belong
@@ -15,19 +13,10 @@ buildscript {
     }
 }
 
-ext {
-    userOrg = 'ly1054'
-    groupId = 'com.ly1054.brisker'
-    uploadName = 'brisker'
-    publishVersion = '0.0.1'
-    desc = 'a easy apt android annotation framwork '
-    website = 'https://github.com/ly1054/brisker'
-    licences = ['Apache-2.0']
-}
-
 allprojects {
     repositories {
         jcenter()
+        maven{url "https://jitpack.io"}
     }
     tasks.withType(Javadoc) {
         options{
