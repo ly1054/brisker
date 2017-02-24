@@ -1,4 +1,4 @@
-package com.ly1054.brisker.annotation;
+package com.ly1054.birsker.annotation;
 
 
 import java.lang.annotation.ElementType;
@@ -9,7 +9,6 @@ import java.lang.annotation.Target;
 
 @Target(ElementType.FIELD)
 @Retention(RetentionPolicy.CLASS)
-public @interface IntentName {
-
-    String value() default "";
+public @interface Bind {
+    int value() default 0;
 }

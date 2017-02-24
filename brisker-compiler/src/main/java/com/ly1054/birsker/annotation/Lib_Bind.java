@@ -1,4 +1,4 @@
-package com.ly1054.brisker.annotation;
+package com.ly1054.birsker.annotation;
 
 
 import java.lang.annotation.ElementType;
@@ -7,9 +7,10 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 
+@Target(ElementType.FIELD)
 @Retention(RetentionPolicy.CLASS)
-@Target(ElementType.METHOD)
-public @interface OnClick {
+public @interface Lib_Bind {
 
-    int[] value() default 0;
+    String value() default "";
+
 }

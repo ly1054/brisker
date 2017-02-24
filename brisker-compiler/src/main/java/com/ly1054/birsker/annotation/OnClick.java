@@ -1,4 +1,4 @@
-package com.ly1054.brisker.annotation;
+package com.ly1054.birsker.annotation;
 
 
 import java.lang.annotation.ElementType;
@@ -8,9 +8,8 @@ import java.lang.annotation.Target;
 
 
 @Retention(RetentionPolicy.CLASS)
-@Target(ElementType.TYPE)
-public @interface ContentView {
+@Target(ElementType.METHOD)
+public @interface OnClick {
 
-    int value() default 0;
-
+    int[] value() default 0;
 }
