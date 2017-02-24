@@ -1,1 +1,1 @@
-include ':brisker-sample', ':brisker-complier', ':brisker-api'
+include ':brisker-sample', ':brisker-compiler', ':brisker-api'

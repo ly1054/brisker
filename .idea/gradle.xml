@@ -9,7 +9,7 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/brisker-api" />
-            <option value="$PROJECT_DIR$/brisker-complier" />
+            <option value="$PROJECT_DIR$/brisker-compiler" />
             <option value="$PROJECT_DIR$/brisker-sample" />
           </set>
         </option>

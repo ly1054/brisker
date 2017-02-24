@@ -3,7 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/brisker-api/brisker-api.iml" filepath="$PROJECT_DIR$/brisker-api/brisker-api.iml" />
-      <module fileurl="file://$PROJECT_DIR$/brisker-complier/brisker-complier.iml" filepath="$PROJECT_DIR$/brisker-complier/brisker-complier.iml" />
+      <module fileurl="file://$PROJECT_DIR$/brisker-compiler/brisker-compiler.iml" filepath="$PROJECT_DIR$/brisker-compiler/brisker-compiler.iml" />
       <module fileurl="file://$PROJECT_DIR$/brisker-sample/brisker-sample.iml" filepath="$PROJECT_DIR$/brisker-sample/brisker-sample.iml" />
       <module fileurl="file://$PROJECT_DIR$/myProject.iml" filepath="$PROJECT_DIR$/myProject.iml" />
     </modules>
