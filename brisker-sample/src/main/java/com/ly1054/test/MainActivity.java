@@ -43,6 +43,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Brisker.inject(this);
+        mTextView1.setText("come on,baby!");
     }
 
 }
