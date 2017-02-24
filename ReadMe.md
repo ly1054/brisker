@@ -1,3 +1,4 @@
+[![](https://jitpack.io/v/ly1054/brisker.svg)](https://jitpack.io/#ly1054/brisker)
 #Android Brisker注解框架
     打造一款编译期轻量级注解框架，参照了
     butterknife实现方式，配合databinding更加快捷迅速。
