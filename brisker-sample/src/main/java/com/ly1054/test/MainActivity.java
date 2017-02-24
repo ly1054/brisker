@@ -4,11 +4,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.TextView;
 import com.ly1054.birsker.R;
-import com.ly1054.birsker.annotation.Bind;
-import com.ly1054.birsker.annotation.ContentView;
-import com.ly1054.birsker.annotation.IntentName;
-import com.ly1054.birsker.annotation.Lib_Bind;
-import com.ly1054.birsker.annotation.Import_R;
+import com.ly1054.brisker.annotation.Bind;
+import com.ly1054.brisker.annotation.ContentView;
+import com.ly1054.brisker.annotation.IntentName;
+import com.ly1054.brisker.annotation.Lib_Bind;
+import com.ly1054.brisker.annotation.Import_R;
 import com.ly1054.brisker.Brisker;
 
 @Import_R("com.ly1054.birsker.R")

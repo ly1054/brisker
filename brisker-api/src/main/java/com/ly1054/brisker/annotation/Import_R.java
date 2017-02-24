@@ -1,4 +1,4 @@
-package com.ly1054.birsker.annotation;
+package com.ly1054.brisker.annotation;
 
 
 import java.lang.annotation.ElementType;
@@ -9,8 +9,8 @@ import java.lang.annotation.Target;
 
 @Retention(RetentionPolicy.CLASS)
 @Target(ElementType.TYPE)
-public @interface ContentView {
+public @interface Import_R {
 
-    int value() default 0;
+    String value() default "";
 
 }
