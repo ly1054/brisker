@@ -11,7 +11,7 @@ import com.ly1054.birsker.annotation.Lib_Bind;
 import com.ly1054.birsker.annotation.Import_R;
 import com.ly1054.brisker.Brisker;
 
-@Import_R("com.ly1054.birsker.R")
+//@Import_R("com.ly1054.birsker.R")
 @ContentView(R.layout.activity_main)
 public class MainActivity extends AppCompatActivity {
 

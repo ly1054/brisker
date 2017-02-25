@@ -11,6 +11,7 @@
             <option value="$PROJECT_DIR$/brisker-api" />
             <option value="$PROJECT_DIR$/brisker-compiler" />
             <option value="$PROJECT_DIR$/brisker-sample" />
+            <option value="$PROJECT_DIR$/example" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

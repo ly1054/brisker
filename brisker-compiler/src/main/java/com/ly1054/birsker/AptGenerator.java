@@ -1,15 +1,11 @@
 package com.ly1054.birsker;
 
-
-
 import java.util.HashMap;
 import java.util.Map;
 import javax.lang.model.element.Element;
 import javax.lang.model.element.PackageElement;
 import javax.lang.model.element.TypeElement;
 import javax.lang.model.util.Elements;
-
-
 
 public class AptGenerator {
 
@@ -85,6 +81,38 @@ public class AptGenerator {
             builder.append("                ((android.app.Activity)host).setContentView(" + mContentViewId + ");\n" );
         }
         builder.append("        }\n");
+        //bind注解
+        for (Element element: mBindMap.keySet()) {
+            String name = element.getSimpleName().toString();
+            String type = element.asType().toString();
+            builder.append("        if( object instanceof android.app.Activity){\n");
+            builder .append("                 host." + name + "=").append("((" + type + ")((android.app.Activity)object).findViewById(" + mBindMap.get(element) + "));\n");
+            builder.append("        }else if(object instanceof android.view.View){\n");
+            builder.append("                  host." + name + "=").append("((" + type + ")((android.view.View)object).findViewById(" + mBindMap.get(element) + "));\n");
+            builder.append("        }\n");
+        }
+
+        //Intent_Name注解
+        builder.append("        if( object instanceof android.app.Activity){\n");
+        for (Element element : mIntentNameMap.keySet()) {
+            genIntentNameJavaCode(mIntentNameMap.get(element),element,builder);
+        }
+
+        builder.append("                final " + mTypeElement.getQualifiedName() +" activity = host;\n");
+        //OnClick注解
+        for (Element element:mOnClickMap.keySet()){
+            String name = element.getSimpleName().toString();
+            for (int i = 0; i < mOnClickMap.get(element).length; i++) {
+                builder.append("                activity.findViewById("  +  mOnClickMap.get(element)[i]
+                        + ").setOnClickListener(new android.view.View.OnClickListener(){\n" +
+                        "                   @Override\n" +
+                        "                           public void onClick(android.view.View v){ \n" +
+                        "                                   activity." + name + "(v);\n" +
+                        "                           }\n" +
+                        "                   });\n" );
+            }
+
+        }
         //Import_R Lib_ContentView Lib_Bind注解
         if (mLibR != null && !mLibR.equals("")){
 
@@ -104,39 +132,6 @@ public class AptGenerator {
                 builder.append("        }else if(object instanceof android.view.View){\n");
                 builder.append("                  host." + name + "=").append("((" + type + ")((android.view.View)object).findViewById(" + mLibBindMap.get(element) + "));\n");
                 builder.append("        }\n");
-            }
-
-            //bind注解
-            for (Element element: mBindMap.keySet()) {
-                String name = element.getSimpleName().toString();
-                String type = element.asType().toString();
-                builder.append("        if( object instanceof android.app.Activity){\n");
-                builder .append("                 host." + name + "=").append("((" + type + ")((android.app.Activity)object).findViewById(" + mBindMap.get(element) + "));\n");
-                builder.append("        }else if(object instanceof android.view.View){\n");
-                builder.append("                  host." + name + "=").append("((" + type + ")((android.view.View)object).findViewById(" + mBindMap.get(element) + "));\n");
-                builder.append("        }\n");
-            }
-
-            //Intent_Name注解
-            builder.append("        if( object instanceof android.app.Activity){\n");
-            for (Element element : mIntentNameMap.keySet()) {
-                genIntentNameJavaCode(mIntentNameMap.get(element),element,builder);
-            }
-
-            builder.append("                final " + mTypeElement.getQualifiedName() +" activity = host;\n");
-            //OnClick注解
-            for (Element element:mOnClickMap.keySet()){
-                String name = element.getSimpleName().toString();
-                for (int i = 0; i < mOnClickMap.get(element).length; i++) {
-                    builder.append("                activity.findViewById("  +  mOnClickMap.get(element)[i]
-                            + ").setOnClickListener(new android.view.View.OnClickListener(){\n" +
-                            "                   @Override\n" +
-                            "                           public void onClick(android.view.View v){ \n" +
-                            "                                   activity." + name + "(v);\n" +
-                            "                           }\n" +
-                            "                   });\n" );
-                }
-
             }
 
             //Lib_OnClick注解
