@@ -3,6 +3,19 @@
     打造一款编译期轻量级注解框架，参照了
     butterknife实现方式，配合databinding更加快捷迅速。
 ##1.使用方法：
+###配置jit仓：
+    allprojects {
+    		repositories {
+    			...
+    			maven { url 'https://jitpack.io' }
+    		}
+    	}
+###添加gradle依赖：
+    dependencies {
+    	        compile 'com.github.ly1054.brisker:brisker-api:0.0.1'
+    	        compile 'com.github.ly1054.brisker:brisker-compiler:0.0.1'
+    	}
+
 ###activity中view控件、onclick事件绑定，getIntent注入：
 
     Activity ContentView绑定：
