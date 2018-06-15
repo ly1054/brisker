@@ -18,17 +18,20 @@
 
 ### activity中view控件、onclick事件绑定，getIntent注入：
 
-    Activity ContentView绑定：
+Activity ContentView绑定：
+
     @ContentView(R.layout.main)
     public class MainActivity extends Activity{
 
     }
 
-    view绑定：
+view绑定：
+
     @Bind(R.id.text)
     TextView mText;
 
-    onclick事件绑定：
+onclick事件绑定：
+
     @Bind(R.id.text)
     public void onTextClick(View v){
         v.setText(“你点击了text!");
@@ -38,11 +41,13 @@
      public void onClick(View v){
      }
 
-     intent传值绑定：
+intent传值绑定：
+
      @IntentName("text")
      String mText;
 
-    在activity中注入依赖所需代码：
+在activity中注入依赖所需代码：
+
     Brisker.inject(this);
 
 ### 普通view绑定：
@@ -52,7 +57,8 @@
 
 ## 2.对library的支持：
 
-    在类名处通过主注解导入library的R文件包(对非library依然有效):
+在类名处通过主注解导入library的R文件包(对非library依然有效):
+
     @Import_R("com.ly1054.test.R")
     @Lib_ContentView("R.layout.main")
     public Class MainActivity extends Activity{
